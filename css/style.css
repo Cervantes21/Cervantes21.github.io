@@ -1,3 +1,8 @@
+html {
+    font-family: monospace;
+}
+
+
 /* ---- Body-Header ---- */
 
 body {
@@ -14,8 +19,7 @@ body {
 
 .header-list__item {
     display: inline-block;
-    font-size: 23px;
-    font-family: monospace;
+    font-size: 145%;
 }
 
 .header-list__item a {

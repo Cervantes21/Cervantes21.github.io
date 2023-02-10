@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="andr%C3%A9s-cervantes-%F0%9F%87%B2%F0%9F%87%BD-dragon">Andrés Cervantes 🇲🇽 🐉</h1>
+<h3 id="DataScientist">Data Scientist with Python 🐍</h3>
+<div align="center">
+	<a href="Artificial I">
+		<img src="./raw/artificial-intelligence-4389372_960_720.jpg" alt="press" height="325" width="470">
+	</a>
+</div>
+<h1 id="welcome-to-my-profile--visitors">Welcome to my profile: | <img src="https://visitor-badge.glitch.me/badge?page_id=cervantes.21.cervantes21&amp;style=flat-square&amp;color=0088cc" alt="visitors"></h1>
+<!-- Social media -->
+<p align="center">
+	<kbd>
+<a href="https://twitter.com/AndyDollin21"><img src="https://img.shields.io/badge/-@AndyDollin21-00acee?style=flat&logo=Twitter&logoColor=white" /></a>
+<a href="https://www.linkedin.com/in/cervantes21/"><img src="https://img.shields.io/badge/-Andrés_Cervanes21-0072b1?style=flat&logo=Linkedin&logoColor=white" /></a>
+<a href="https://twitter.com/intent/follow?screen_name=AndyDollin21"><img src="https://img.shields.io/twitter/follow/AndyDollin21.svg?style=social" alt="Twitter"></a>
+	</kbd>
+</p>
+<!-- "Tech Stack" -->
+<details>
+  <summary><b>⚡ Tech Stack</b></summary>
+<!-- Machine learning skill -->
+<table>
+<thead>
+<tr>
+<th><strong>Category</strong></th>
+<th><strong>Technologies</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Set</strong></td>
+<td><a href="https://www.python.org/"><img src="https://img.shields.io/static/v1?label=&amp;message=Python&amp;color=FCC624&amp;logo=python&amp;logoColor=#3742fa" alt="Python"></a> <a href="https://www.r-project.org/"><img src="https://img.shields.io/static/v1?label=&amp;message=R+Project&amp;color=1289A7&amp;logo=r&amp;logoColor=FFFFFF" alt="R"></a> <a href="https://lenguajehtml.com/html/"><img src="https://img.shields.io/static/v1?label=&amp;message=HTML5&amp;color=ff7f50&amp;logo=HTML5&amp;logoColor=FFFFFF" alt="HTML"></a> <a href="https://lenguajecss.com/css/"><img src="https://img.shields.io/static/v1?label=&amp;message=CSS&amp;color=1e90ff&amp;logo=css3&amp;logoColor=FFFFFF" alt="CSS3"></a></td>
+</tr>
+<tr>
+<td><strong>Framework</strong></td>
+<td><a href="https://numpy.org/"><img src="https://img.shields.io/static/v1?label=&amp;message=NumPy&amp;color=0a3d62&amp;logo=numpy&amp;logoColor=FFFFFF" alt="NumPy"></a> <a href="https://pandas.pydata.org/"><img src="https://img.shields.io/static/v1?label=&amp;message=Pandas&amp;color=1B1464&amp;logo=pandas&amp;logoColor=FFFFFF" alt="Pandas"></a> <a href="https://matplotlib.org/"><img src="https://img.shields.io/static/v1?label=&amp;message=Matplotlib&amp;color=FFC312&amp;logo=python&amp;logoColor=2f3542" alt="Matplotlib"></a> <a href="https://seaborn.pydata.org/"><img src="https://img.shields.io/static/v1?label=&amp;message=Seaborn&amp;color=006266&amp;logo=python&amp;logoColor=FFFFFF" alt="seaborn"></a></td>
+</tr>
+<tr>
+<td><strong>Data</strong></td>
+<td><a href="https://www.postgresql.org/"><img src="https://img.shields.io/static/v1?label=&amp;message=Postgre+SQL&amp;color=227093&amp;logo=postgresql&amp;logoColor=FFFFFF" alt="PostgreSQL"></a> <a href="https://www.mysql.com/"><img src="https://img.shields.io/static/v1?label=&amp;message=My+SQL&amp;color=2d98da&amp;logo=mysql&amp;logoColor=FFFFFF" alt="MySQL"></a> <a href="https://www.tensorflow.org/"><img src="https://img.shields.io/static/v1?label=&amp;message=Tensorflow&amp;color=FF9F43&amp;logo=tensorflow&amp;logoColor=feca57" alt="Tensorflow"></a></td>
+</tr>
+<tr>
+<td><strong>Backend</strong></td>
+<td><a href="https://www.djangoproject.com/"><img src="https://img.shields.io/static/v1?label=&amp;message=Django&amp;color=009432&amp;logo=django&amp;logoColor=FFFFFF" alt="Django"></a> <a href="https://flask.palletsprojects.com/"><img src="https://img.shields.io/static/v1?label=&amp;message=Flask&amp;color=f5f6fa&amp;logo=flask&amp;logoColor=2f3640" alt="Flask"></a> <a href="https://flask.palletsprojects.com/"><img src="https://img.shields.io/static/v1?label=&amp;message=FastApi&amp;color=01a3a4&amp;logo=fastapi&amp;logoColor=FFFFFF" alt="FastApi"></a></td>
+</tr>
+<tr>
+<td><strong>Cloud</strong></td>
+<td><a href="https://azure.microsoft.com/"><img src="https://img.shields.io/static/v1?label=&amp;message=Azure&amp;color=0078D4&amp;logo=microsoftazure&amp;logoColor=FFFFFF" alt="Azure"></a> <a href="https://heroku.com/"><img src="https://img.shields.io/static/v1?label=&amp;message=Heroku&amp;color=430098&amp;logo=heroku&amp;logoColor=FFFFFF" alt="Heroku"></a> <a href="https://aws.amazon.com/"><img src="https://img.shields.io/static/v1?label=&amp;message=AWS+Cloud&amp;color=ffb142&amp;logo=amazonaws&amp;logoColor=1e272e" alt="AWS"></a> <a href="https://cloud.google.com/"><img src="https://img.shields.io/static/v1?label=&amp;message=GCP&amp;color=4285F4&amp;logo=googlecloud&amp;logoColor=FFFFFF" alt="Google Cloud"></a></td>
+</tr>
+<tr>
+<td><strong>DevOps</strong></td>
+<td><a href="https://docker.com/"><img src="https://img.shields.io/static/v1?label=&amp;message=Docker&amp;color=2496ED&amp;logo=docker&amp;logoColor=FFFFFF" alt="Docker"></a></td>
+</tr>
+<tr>
+<td><strong>Testing</strong></td>
+<td><a href="https://www.selenium.dev/"><img src="https://img.shields.io/static/v1?label=&amp;message=Selenium&amp;color=43B02A&amp;logo=selenium&amp;logoColor=FFFFFF" alt="Selenium"></a></td>
+</tr>
+<tr>
+<td><strong>Misc</strong></td>
+<td><a href="https://www.linux.org/"><img src="https://img.shields.io/static/v1?label=&amp;message=Linux&amp;color=FCC624&amp;logo=linux&amp;logoColor=000000" alt="Linux"></a> <a href="https://www.gnu.org/software/bash/"><img src="https://img.shields.io/static/v1?label=&amp;message=Bash&amp;color=d35400&amp;logo=gnubash&amp;logoColor=FFFFFF" alt="Bash"></a> <a href="https://en.wikipedia.org/wiki/Markdown"><img src="https://img.shields.io/static/v1?label=&amp;message=Markdown&amp;color=000000&amp;logo=markdown&amp;logoColor=FFFFFF" alt="Markdown"></a></td>
+</tr>
+<tr>
+<td><strong>Editors</strong></td>
+<td><a href="https://www.vim.org/"><img src="https://img.shields.io/static/v1?label=&amp;message=Vim&amp;color=019733&amp;logo=vim&amp;logoColor=FFFFFF" alt="Vim"></a> <a href="https://code.visualstudio.com/"><img src="https://img.shields.io/static/v1?label=&amp;message=VS Code&amp;color=2f3640&amp;logo=visualstudiocode&amp;logoColor=0097e6" alt="VS Code"></a> <a href="https://colab.research.google.com/"><img src="https://img.shields.io/static/v1?label=&amp;message=Google+Colab&amp;color=e84118&amp;logo=googlecolab&amp;logoColor=#fbc531" alt="Google Colab"></a> <a href="https://deepnote.com/"><img src="https://img.shields.io/static/v1?label=&amp;message=Deepnote&amp;color=dcdde1&amp;logo=deepnote&amp;logoColor=0097e6" alt="Deepnote"></a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><img align="center" width="190" src="./raw/coded-data.gif"/></p>
+<hr>
+</details>
+<!-- Dev profile -->
+ <p>
+    <details>
+	  <summary><b>🔵🔴🟡🟢 Developer GitHub profile in button:⬅⬇ </b></summary><a href="https://github.com/Cervantes21"><img src="./raw/render-3.jpg" alt="github-logo" width="500px"></a>
+<hr>
+ </p>	
+	</details>
+<hr>
+<!-- "About me and skill's" -->
+<h3 id="greet">Hi, i'm Andy!! 👋</h3>
+<details>
+  <summary><b>🙋‍♂️ About me</b></summary>
+<!-- 'Version en Español: -->
+  <details>
+  <summary>
+    <b>Mi historia en Español 🇲🇽: </b>
+  </summary>
+    <p>
+      <img align="right" width="250" src="./raw/me_cervantes21.jpg"/>
+  <blockquote>
+  <!-- My history -->
+Nací en Cuernavaca, México. 
+<p>Todo comienza al rededor de los 13 años con un interés en el diseño gráfico y la programación, el arte y la ecología. A esa edad agarraba trabajos sencillos, lo que me hizo ver una demanda en el diseño y la publicidad.
+Al rededor de los 15 años comienzo con trabajos freelance de diseño y algunos proyectos.</p>
+<p>A la edad de los 16 a los 19 años, comencé trabajando en una imprenta de publicidad en donde me dieron la oportunidad de desarrollarme más como diseñador y auxiliar administrativo, junto con eso estudiaba en la universidad la carrera de Mercadotecnia y publicidad. Al no presentarme un reto más allá de sólo ver lo que ya venía trabajando, decido cambiar de carrera, ahora a Relaciones Internacionales y Economía, lo cual me resulta muy agradable y estudió al rededor de un año y medio, pero eso tuvo como resultado darme más ganas de emprender y tener negocio propio, así que abandonó la carrera a los 20 y terminó trabajando en algunos lugares y proyectos, aparte también aprendiendo sobre Ciencias Sustentables en talleres y cursos.</p>
+<p>A la edad de 21 años, comienzo con un negocio más formal de Muebles ecológicos hechos con llantas y madera reciclada. Por ese periodo nace mi primera hija. Con lo cual tenía que también tener un trabajo extra, dejó ese emprendimiento por falta de recursos y tiempo. Y mi padre me introduce a la venta de arte;
+Con lo que ganaba junté para invertir con un Networking de telecomunicaciones, y resultó bien el crecimiento del equipo y logre ganar algo de dinero muy rápido.</p>
+<p>Ya con 22 años aproximadamente comencé a invertir en crear un pequeño restaurante bar llamado &quot;La Barra Azteca&quot; concepto de burritos con ingredientes prehispánicos y mezcal, vendí la idea y al poco rato conozco una persona y nos asociamos para crear algunas pizzerías, la idea se llamaba &quot;Pizzharina&quot; una pizza de tortilla de harina en vez de masa, como son tradicionales. Continuamos abriendo hasta 3 locales, pero el que era mi socio, terminó haciendo fraudes a personas y a mí, pero yo termine siendo el que pago los platos rotos porque esta persona desapareció y mi nombre estaba en juego.
+Porque cuento esto... Porque es parte de mi experiencia, lo que aprendí es invaluable, y hace parte de mi ética. Además, ahora me resulta divertido.</p>
+<p>Por lo sucedido contraigo varias deudas, pero continuo con tres trabajos a la vez, ya qué venía un segundo bebé en camino.
+Así que por las mañanas era ayudante de carpintero ya qué no había trabajos disponibles, después de eso vendía algunos productos de novedad, por las noches hacía diseños y los fines de semana estudiaba diseño 3D y edición de vídeo. No tardó mucho en donde el dueño de la carpintería me ascendiera para realizar modelados 3D de diseños de muebles, cocinas, y ser su auxiliar contable por mi experiencia previa. Pasaron unos meses y justo eso hizo que optará por iniciar mi propia agencia de publicidad, con lo que ahí nace &quot;Tree House, Publish and Desing&quot; Pero su primera creación duró muy poco, porque me hicieron una propuesta para trabajar con una empresa dedicada a la imagen corporativa de escuelas, cuya empresa tenía más de 50 años en el mercado. llamado &quot;Impemex&quot; . En donde trabaje desde el área de producción, ventas, diseño hasta el área contable y después administrativa. Dónde pude desarrollar más mi manejo de equipos, pero sobre todo pude llevar a la empresa a una renovación tecnológica, desde la creación de su página web, hacer diseño, campañas publicitarias y su introducción a las redes, Google Analytics, etc. Periodo del 2018 al 2020, en dónde debido a la pandemia y sus clientes primordialmente pertenecer al sector de la educación, disminuyeron sus ventas y posteriormente a detener labores.</p>
+</blockquote>
+<hr>
+<h1 id="hay-que-aprovechar-las-oportunidades">Hay que aprovechar las oportunidades:</h1>
+<blockquote>
+<p>Dentro del periodo del 2018 al 2020, también pasaba los ratos libres aprendiendo más sobre social-media marketing,  análisis de datos y video marketing, lo cual iba aplicando en mi trabajo en <a href="https://www.impemex.com/">Impemex</a> cómo comentaba anteriormente cuando ocurre la pandemia y no puedo continuar trabajando en esa empresa. Pero justo los conocimientos que había adquirido me permitieron continuar con mi proyecto de Tree House, dónde la demanda del mercado aumentaba de querer mudarse a la era digital. Arme un equipo en donde realizábamos desde el diseño de la página web, campañas en redes sociales, con Google Ads, lograr posicionar algunos negocios, así hasta mediados del 2021, el problema llego cuando no supe cómo poder automatizar todos esos procesos.</p>
+</blockquote>
+<h1 id="ah%C3%AD-llego-python">Ahí llego Python:</h1>
+<blockquote>
+<p>Tras mi búsqueda del cómo poder automatizar los procesos de redes sociales, y poder ayudar a tomar buenas decisiones empresariales, asistencia y organización, bots de servicio al cliente, y muchas otras partes relacionadas, llevaron a  mi interés por usar la inteligencia artificial, en donde encontré a Python y el <strong>Machine learning</strong> y así comencé a estudiar de manera autodidacta, también haciendo certificaciones en la web y análisis de datos con <a href="https://developers.google.com/machine-learning/crash-course/ml-intro">Google</a>, para mi buena suerte <a href="https://www.impemex.com/">Impemex</a> volvió a iniciar actividades y me invitaron a trabajar nuevamente, lo cual eso permitió que pudiera en este año 2022 estudiar en <a href="https://platzi.com/home">Platzi</a> la carrera de Data Scientist &amp; AI.</p>
+</blockquote>
+<h1 id="el-presente">El presente.</h1>
+<blockquote>
+<p>Tras presentar algunos problemas la empresa de &quot;Impemex&quot; debido a la pandemia, deciden los dueños vender la empresa, y así está comenzando para mí un nuevo comienzo. En dónde busco desarrollarme como Data Scientist y continuar para convertirme en un Machine learning engineer.
+Actualmente, estaré subiendo mis avances en GitHub.
+Y estoy en búsqueda de continuar escribiendo más historias...</p>
+</blockquote>
+  </p>
+<p><a href="https://platzi.com/cursos" title="Nunca pares de aprender"><img src="https://i.imgur.com/b1kbwbR.gif" alt="Casco astronauta"></a></p>
+<hr>
+  </details>
+<!-- 'English version: ' -->
+ <details>
+  <summary>
+    <b>My history in English 🇺🇸:</b>
+  </summary>
+    <p>
+      <img align="right" width="250" src="./raw/me_cervantes21.jpg"/>
+  <blockquote>
+  <!-- My history -->
+I was born in Cuernavaca, Mexico.
+<p>It all starts around the age of 13 with an interest in graphic design and programming, art, and ecology. At that age, he was taking simple jobs, which made me see a demand for design and advertising.
+When i was 15 years old, I start with freelance design jobs and some projects.</p>
+<p>When i was  16 to 19 years, I started working in an advertising printer where I was allowed to develop further as a designer and administrative assistant, along with that I was studying Marketing and Advertising at the university. By not presenting myself with a challenge beyond just seeing what I had already been working on, I decided to change my career, now to International Relations and Economics, which I find very pleasant I studied for about a year and a half, but that resulted in giving me more desire to start and have his own business, so he dropped out at 20 and ended up working in some places and projects, apart from also learning about Sustainable Sciences in workshops and courses.</p>
+<p>when i was 21 years, I start a more formal business of ecological furniture made with tires and recycled wood. During that period my first daughter was born. He also had to have an extra job, he left that venture due to a lack of resources and time. And my father introduces me to the sale of art;
+With what I earned I put together to invest in telecommunications networking, and the growth of the team turned out well and I managed to earn some money very quickly.</p>
+<p>Approximately 22 years, I began to invest in creating a small restaurant-bar called &quot;La Barra Azteca&quot;, a concept of burritos with pre-Hispanic ingredients and mezcal, I sold the idea and soon I met a person and we partnered to create some pizzerias, the idea came to life. called &quot;Pizzharina&quot; a flour tortilla pizza instead of dough, as they are traditional. We continued to open up 3 stores, but the one who was my partner, ended up defrauding people and me, but I ended up being the one who paid the piper because this person disappeared and my name was at stake.
+Because I'm telling you this... Because it's part of my experience,  and it's part of my ethics. Besides, now I find it funny.</p>
+<p>Due to what happened, I incur several debts, but I continue to work three jobs at the same time because a second baby was on the way.
+So in the mornings she was a carpenter's helper since there were no jobs available, after that she sold some novelty products, in the evenings she made designs and on the weekends she studied 3D design and video editing. It didn't take long for the owner of the carpentry to promote me to carry out 3D modeling of furniture designs, and kitchens, and to be his accounting assistant due to my previous experience. A few months passed and that was exactly what made me decide to start my advertising agency, which is where &quot;Tree House, Publish and Desing&quot; was born. But its first creation did not last very long, because they made me an offer to work with a company dedicated to the corporate image of schools, whose company had been in the market for more than 50 years. called &quot;Impex&quot;. I work from the production area, sales, and design to the accounting area and then administrative. Where I was able to further develop my team management, but above all, I was able to lead the company through a technological renovation, from the creation of its website, design, advertising campaigns, and its introduction to networks, Google Analytics, etc. In the period from 2018 to 2020, due to the pandemic and its clients primarily belonging to the education sector, their sales decreased and later they stopped working.</p>
+</blockquote>
+<hr>
+<h1 id="we-need-to-take-advantage-of-the-opportunities">We need to take advantage of the opportunities:</h1>
+<blockquote>
+<p>Within the period from 2018 to 2020, I also spent my free time learning more about social media marketing, data analysis, and video marketing, which I was applying in my work at <a href="https://www.impemex.com/">Impemex</a> how I commented before when the pandemic occurs, and I cannot continue working in that company. But precisely the knowledge that I had acquired allowed me to continue with my Tree House project, where the market demand increased from wanting to move into the digital age. I put together a team where we carried out everything from the design of the web page, and campaigns on social networks, with Google Ads, to position some businesses, like this until mid-2021, the problem came when I did not know how to automate all those processes.</p>
+</blockquote>
+<h1 id="python-is-coming">Python is coming:</h1>
+<blockquote>
+<p>My search for how to automate social media processes, and to help make good business decisions, assistance and organization, customer service bots, and many other related parties, led to my interest in using artificial intelligence, where I found Python and <strong>Machine learning</strong>, and so I began to study self-taught, also doing certifications on the web and data analysis with [Google](https://developers.google.com/machine-learning/crash -course/ml-intro), for my good luck <a href="https://www.impemex.com/">Impemex</a> started activities again, and they invited me to work again, which allowed me to study in this year 2022. <a href="https://platzi.com/home">Platzi</a> the career of Data Scientist &amp; AI.</p>
+</blockquote>
+<h1 id="in-present">In Present:</h1>
+<blockquote>
+<p>After the &quot;Impemex&quot; company presented some problems due to the pandemic, the owners decided to sell the company, and thus a new beginning is beginning for me. Where I am looking to develop myself as a Data Scientist and continue to become a Machine learning engineer.
+Currently, I will be uploading my progress on GitHub.
+And I'm looking to continue writing more stories...</p>
+</blockquote>
+  </p>
+<p><a href="https://platzi.com/cursos" title="Nunca pares de aprender"><img src="https://i.imgur.com/b1kbwbR.gif" alt="Casco astronauta"></a></p>
+<hr>
+  </details>
+
+</details>
+<hr>
+<!-- "Data Skill's" -->
+<details>
+  <summary><b>🔍 Data skill's</b></summary>
+    <p>
+      <img align="left" width="250" src="./raw/data-analysis.gif"/>
+<!-- <blockquote -->
+<!-- "agregar texto" -->
+<!--/blockquote> -->
+<table>
+<thead>
+<tr>
+<th><strong>Category</strong></th>
+<th><strong>Technologies</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Data Manipulation</strong></td>
+<td><a href="https://www.python.org/"><img src="https://img.shields.io/static/v1?label=&amp;message=Python&amp;color=009432&amp;logo=python&amp;logoColor=FFFFFF" alt="Python"></a> <a href="https://www.r-project.org/"><img src="https://img.shields.io/static/v1?label=&amp;message=R+Project&amp;color=1289A7&amp;logo=r&amp;logoColor=FFFFFF" alt="R"></a> <a href="https://www.office.com/"><img src="https://img.shields.io/static/v1?label=&amp;message=Microsoft+Excel&amp;color=A3CB38&amp;logo=microsoftexcel" alt="MicrosoftExcel"></a> <a href="https://numpy.org/"><img src="https://img.shields.io/static/v1?label=&amp;message=NumPy&amp;color=0a3d62&amp;logo=numpy&amp;logoColor=FFFFFF" alt="NumPy"></a> <a href="https://pandas.pydata.org/"><img src="https://img.shields.io/static/v1?label=&amp;message=Pandas&amp;color=1B1464&amp;logo=pandas&amp;logoColor=FFFFFF" alt="Pandas"></a></td>
+</tr>
+<tr>
+<td><strong>Data Viz</strong></td>
+<td><a href="https://matplotlib.org/"><img src="https://img.shields.io/static/v1?label=&amp;message=Matplotlib&amp;color=FFC312&amp;logo=&amp;logoColor=FFFFFF" alt="Matplotlib"></a> <a href="https://seaborn.pydata.org/"><img src="https://img.shields.io/static/v1?label=&amp;message=Seaborn&amp;color=006266&amp;logo=seaborn&amp;logoColor=FFFFFF" alt="seaborn"></a> <a href="https://www.office.com/"><img src="https://img.shields.io/static/v1?label=&amp;message=Microsoft+Office&amp;color=e67e22&amp;logo=microsoftoffice" alt="MicrosoftOffice"></a></td>
+</tr>
+<tr>
+<td><strong>Data Base</strong></td>
+<td><a href="https://www.postgresql.org/"><img src="https://img.shields.io/static/v1?label=&amp;message=Postgre+SQL&amp;color=227093&amp;logo=postgresql&amp;logoColor=FFFFFF" alt="PostgreSQL"></a> <a href="https://www.mysql.com/"><img src="https://img.shields.io/static/v1?label=&amp;message=My+SQL&amp;color=2d98da&amp;logo=mysql&amp;logoColor=FFFFFF" alt="MySQL"></a></td>
+</tr>
+<tr>
+<td><strong>Cloud</strong></td>
+<td><a href="https://azure.microsoft.com/"><img src="https://img.shields.io/static/v1?label=&amp;message=Azure&amp;color=0078D4&amp;logo=microsoftazure&amp;logoColor=FFFFFF" alt="Azure"></a> <a href="https://heroku.com/"><img src="https://img.shields.io/static/v1?label=&amp;message=Heroku&amp;color=430098&amp;logo=heroku&amp;logoColor=FFFFFF" alt="Heroku"></a> <a href="https://aws.amazon.com/"><img src="https://img.shields.io/static/v1?label=&amp;message=AWS+Cloud&amp;color=ffb142&amp;logo=amazonaws&amp;logoColor=1e272e" alt="AWS"></a> <a href="https://cloud.google.com/"><img src="https://img.shields.io/static/v1?label=&amp;message=GCP&amp;color=4285F4&amp;logo=googlecloud&amp;logoColor=FFFFFF" alt="Google Cloud"></a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+  </p>
+</details>
+<!-- "Business Intelligence" -->
+<details>
+  <summary><b>📈 Business Intelligence</b></summary>
+<h1 id="google-analytics"><strong>Google Analytics</strong></h1>
+<blockquote>
+<p>Data visualization with
+<a href="https://analytics.google.com/"><img src="./raw/descarga.png" alt="GoogleAnalytics"></a></p>
+</blockquote>
+<hr>
+<h1 id="tableau"><strong>Tableau</strong></h1>
+<blockquote>
+<p><a href="https://www.tableau.com/"><img src="./raw/Tableau-Logo.png" alt="Tableau"></a></p>
+</blockquote>
+</details>
+<!-- "Videomarketing & Design" -->
+<details>
+  <summary><b>📹🎙💻 Videomarketing & Design</b></summary>
+    <p>
+      <img align="right" width="250" src="./raw/marketing.jpg"/>
+<!-- Design -->
+<table>
+<thead>
+<tr>
+<th><strong>Category</strong></th>
+<th><strong>Software</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Graphic Desing</strong></td>
+<td><a href="https://www.adobe.com/mx/products/photoshop.html"><img src="https://img.shields.io/static/v1?label=&amp;message=Photoshop&amp;color=303952&amp;logo=adobephotoshop&amp;logoColor=#2d98da" alt="Photoshop"></a> <a href="https://www.adobe.com/mx/products/illustrator.html"><img src="https://img.shields.io/static/v1?label=&amp;message=Illustrator&amp;color=3d3d3d&amp;logo=adobeillustrator&amp;logoColor=#f7b731" alt="Illustrator"></a></td>
+</tr>
+<tr>
+<td><strong>Web Design</strong></td>
+<td><a href="https://www.adobe.com/mx/products/xd.html"><img src="https://img.shields.io/static/v1?label=&amp;message=Adobe+XD&amp;color=7F1E51&amp;logo=adobexd&amp;logoColor=#e84393" alt="Adobe XD"></a></td>
+</tr>
+<tr>
+<td><strong>Video Editor</strong></td>
+<td><a href="https://www.adobe.com/mx/products/aftereffects.html"><img src="https://img.shields.io/static/v1?label=&amp;message=After+Effects&amp;color=0c2461&amp;logo=adobeaftereffects&amp;logoColor=#778beb" alt="Aftereffects"></a>  <a href="https://www.adobe.com/mx/products/premiere.html"><img src="https://img.shields.io/static/v1?label=&amp;message=Premiere+Pro&amp;color=0c2461&amp;logo=adobepremierepro&amp;logoColor=#8c7ae6" alt="Pro"></a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+  </p>
+</details>
+<hr>
+<!--  ![GitHub stats](https://github-readme-stats.vercel.app/api?username=cervantes21&show_icons=true&theme=radical)     [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=cervantes21&layout=compact)](https://github.com/cervantes21/github-readme-stats) -->
+
+</body>
+</html>

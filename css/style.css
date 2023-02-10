@@ -1,9 +1,15 @@
+/* ---- Body-Header ---- */
+
+body {
+    background-color: #ffc048;
+}
+
 /* ---- Barra de navegación ---- */
 .header-list {
     margin-top: 10px;
     list-style: none;
     padding-left: 0;
-    background-color: #2C3A47;
+    background-color: #1e272e;
 }
 
 .header-list__item {
@@ -16,7 +22,7 @@
     color: #ecf0f1;
     padding: 13px;
     border-radius: 7px;
-    text-decoration: none;
+    text-decoration: none; 
 }
 
 /* ---Activers and hover--- */
@@ -29,3 +35,12 @@
 }
 
 /* --------------------------------------- */
+
+/* ---- Palette colors ---- */
+
+/* Black p: #1e272e (nav_bar)*/
+/*  Sasquatch socks: #FC427B */
+/* SweetGarden: #55E6C1 */
+/* NarenjiOrange: #ffc048 */
+/* Clouds: #ecf0f1 */
+/* ---- Palette colors ---- */

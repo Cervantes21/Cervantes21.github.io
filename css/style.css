@@ -2,6 +2,13 @@ html {
     font-family: monospace;
 }
 
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
 
 /* ---- Body-Header ---- */
 
@@ -11,20 +18,24 @@ body {
 
 /* ---- Barra de navegación ---- */
 .header-list {
-    margin-top: 10px;
-    list-style: none;
-    padding-left: 0;
     background-color: #1e272e;
+    height: 40px;
+    width: 100%;
+}
+
+nav .header-list__item {
+    float: right;
+    margin-right: 10px;
 }
 
 .header-list__item {
     display: inline-block;
-    font-size: 145%;
+    line-height: 40px;
 }
 
 .header-list__item a {
     color: #ecf0f1;
-    padding: 13px;
+    padding: 20px 30px;
     border-radius: 7px;
     text-decoration: none; 
 }
